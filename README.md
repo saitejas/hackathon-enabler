@@ -27,7 +27,7 @@ This app enables the employees of an organization to manage hackathons in an eas
 - To build the image, run this command `docker build -t hackathon-enabler .`
 - To run the server, run this command `docker run -p 80:80 hackathon-enabler` (will be listening at http://localhost:80/)
 
-#Running unit tests
+# Running unit tests
 
 - To trigger the unit test, run this command `ng-test` (Karma test server will open automatically in the browser)
 - To view code coverage results, run this command `ng test --no-watch --code-coverage` (Code coverage results will be shown in the terminal)
