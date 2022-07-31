@@ -1,0 +1,22 @@
+@import '../../../theme/colors.scss';
+
+.add-hackathon {
+
+    &--header {
+        padding: 8%;
+        color: $primary-color;
+        font-size: 24px;
+        font-weight: bolder;
+        border-bottom: 2px solid $primary-color;
+        margin-bottom: 12px;
+    }
+
+    &--form-field {
+        width: 100%;
+    }
+
+    &--tags {
+        width: 98%;
+        margin: 4% 0 0 4%;
+    }
+}

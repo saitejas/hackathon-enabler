@@ -33,10 +33,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: none;
 }
 
+.secondary-button {
+    background-color: white;
+    color: $primary-color;
+    font-weight: bolder;
+    padding: 10px 40px;
+    border-radius: 22px;
+    border: 1px solid $primary-color;
+}
+
 .form-field {
     width: 70%;
     padding: 20px;
     margin: 10px;
     border: 1px solid black;
     border-radius: 32px;
+}
+
+pagination-template nav ul li.current {
+    background-color: $primary-color !important;
+    font-weight: bolder;
 }

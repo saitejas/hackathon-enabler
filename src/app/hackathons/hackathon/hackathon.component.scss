@@ -1,9 +1,48 @@
+@import '../../../theme/colors.scss';
+
 .hackathon {
-    &--up-vote {
-        background-color: green;
+
+    &--title {
+        font-size: 24px;
+        font-weight: bolder;
     }
 
-    &--down-vote {
-        background-color: red;
+    &--description {
+        font-size: 17px;
+        font-weight: bolder;
+        color: darkgrey;
+        line-height: 24px;
+    }
+
+    &--tags {
+        padding-left: 0px;
+        list-style-type: none;
+        display: flex;
+    }
+
+    &--tag-item {
+        background-color: $primary-color;
+        padding: 6px 14px;
+        margin-right: 10px;
+        border-radius: 25px;
+        color: white;
+        font-weight: bolder;
+    }
+
+    &--created-at {
+        font-size: 16px;
+        font-weight: bolder;
+        color: darkgrey;
+    }
+
+    &--vote-count {
+        font-size: 16px;
+        font-weight: bolder;
+        color: $primary-color;
+    }
+
+    &--vote-image {
+        width: 10%;
+        cursor: pointer;
     }
 }
