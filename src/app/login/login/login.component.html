@@ -1,18 +1,22 @@
-<div class="container">
-    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-        <mat-form-field>
-            <input matInput (focus)="onFocus()" [(ngModel)]="employeeId" type="text" placeholder="employeeID">
-        </mat-form-field>
-    </div>
-    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-        <mat-form-field>
-            <input matInput (focus)="onFocus()" [(ngModel)]="password" type="password" placeholder="Password">
-        </mat-form-field>
-    </div>
-    <div class="col-md-12 col-lg-12">
-        <button (click)="validate()">Login</button>
-    </div>
-    <div *ngIf="errorMessage && errorMessage !== ''" class="col-md-12 col-lg-12">
-        <p>{{errorMessage}}</p>
+<div class="container-fluid login--container">
+    <div class="login--form-container">
+        <div class="login--logo-container">
+            <img class="login--logo-image" src="assets/img/logo.svg">
+        </div>
+        <div>
+            <p class="login--welcome">Welcome</p>
+        </div>
+        <div>
+            <input class="form-field" (focus)="onFocus()" [(ngModel)]="employeeId" type="text" placeholder="employeeID">
+        </div>
+        <div>
+            <input class="form-field" (focus)="onFocus()" [(ngModel)]="password" type="password" placeholder="Password">
+        </div>
+        <div *ngIf="errorMessage && errorMessage !== ''" class="m-1">
+            <p class="login--error-message">{{errorMessage}}</p>
+        </div>
+        <div class="mt-2">
+            <button class="primary-button" (click)="validate()">Login</button>
+        </div>
     </div>
 </div>
