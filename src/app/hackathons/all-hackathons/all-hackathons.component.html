@@ -1,37 +1,49 @@
 <app-header></app-header>
-<div class="container-fluid hackathons--banner">
-    <p class="hackathons--banner-text">Manage hackathons with utmost ease 
+<div class="container-fluid hackathons--banner-container">
+    <!-- <p class="hackathons--banner-text">Manage hackathons with utmost ease 
         <span class="float-right">
-            <button class="hackathons--banner-button" (click)="sidenav.toggle()">Add a hackathon</button>
+            <button class="hackathons--banner-button" (click)="sidenav.toggle()">Add an hackathon challenge</button>
         </span>
-    </p>
+    </p> -->
+    <div class="row hackathons--banner">
+        <div class="col-md-6 col-lg-8 col-sm-12 col-xs-12">
+            <p class="hackathons--banner-text">Manage hackathons with utmost ease </p>
+        </div>
+        <div class="col-md-6 col-lg-4 col-sm-12 col-xs-12 text-center">
+            <button class="hackathons--banner-button" (click)="sidenav.toggle()">Add an hackathon challenge</button>
+        </div>
+    </div>
 </div>
-<div class="container">
+<div class="container-fluid">
     <mat-sidenav-container [hasBackdrop]="false">
         <mat-sidenav class="hackathons--add-hackathon-container" #sidenav [mode]="'over'" [position]="'end'">
             <app-add-hackathon (emitChallenge)="addChallenge($event)" (cancelAddition)="sidenav.toggle()"></app-add-hackathon>
         </mat-sidenav>
         <mat-sidenav-content class="hackathons--hackathons-container">
-            <div *ngIf="!hackathons || hackathons?.length === 0" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center">
-                <p> No Hackathons Found </p>
-                <p> Be the first to come up with a challenge <span><button (click)="sidenav.toggle()">Add a challenge</button></span></p>
-            </div>
-            <div>
-                Sort: <mat-form-field appearance="fill">
-                    <!-- <mat-label>Sort By</mat-label> -->
-                    <mat-select (selectionChange)="sortHackathons($event)">
-                      <mat-option value="votes-minmax">votes: Min to Max</mat-option>
-                      <mat-option value="votes-maxmin">votes: Max to Min</mat-option>
-                      <mat-option value="oldest">Oldest Challenges</mat-option>
-                      <mat-option value="newest">Newest Challenges</mat-option>
-                    </mat-select>
-                  </mat-form-field>
+            <div *ngIf="!hackathons || hackathons?.length === 0" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center mt-2">
+                <img src="assets/img/hackathons-not-found.svg">
+                <p class="hackathons--not-found-text">Oops... No hackathons posted yet!!!</p>
             </div>
             <div *ngIf="hackathons && hackathons.length > 0" class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                <div *ngFor="let hackathon of hackathons | paginate: { itemsPerPage: 2, currentPage: p }">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center">
+                        Sort By: <span>
+                            <select autocomplete="off" class="form-field hackathons--sort-field" (change)="sortHackathons($event.target)">
+                                <option value="nonw">None</option>
+                                <option value="votes-minmax">votes: Min to Max</option>
+                                <option value="votes-maxmin">votes: Max to Min</option>
+                                <option value="oldest">Oldest Challenges</option>
+                                <option value="newest">Newest Challenges</option>
+                              </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="hackathons--hackathons-list mb-3" *ngFor="let hackathon of hackathons | paginate: { itemsPerPage: 4, currentPage: p }">
                    <app-hackathon [hackathon]="hackathon"></app-hackathon>
                 </div>
-                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center mt-4">
+                    <pagination-controls *ngIf="hackathons.length > 4" (pageChange)="p = $event"></pagination-controls>
+                </div>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>

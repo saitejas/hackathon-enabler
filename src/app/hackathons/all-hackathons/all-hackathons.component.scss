@@ -11,26 +11,72 @@
         background-color: white;
     }
 
-    &--banner {
+    &--banner-container {
         padding: 41px 40px 41px 12px;
         background-color: $primary-color;
         color: white;
-        margin-bottom: 18px;
+        margin-bottom: 6px;
+    }
+
+    &--banner {
+        display: flex;
+        align-items: center;
     }
 
     &--banner-text {
         font-size: 32px;
         font-weight: bold;
+        line-height: 40px;
     }
 
     &--banner-button {
         font-size: 18px;
-        padding: 14px;
-        font-weight: bold;
-        border-radius: 16px;
-        color: white;
-        background-color: $secondary-color;
+        padding: 14px 40px;
+        font-weight: bolder;
+        border-radius: 24px;
+        color: $primary-color;
+        background-color: white;
         border: none;
         margin-top: -10px;
+        cursor: pointer;
+        box-shadow: 2px 6px grey;
+    }
+
+    &--hackathons-list {
+        box-shadow: 0 2px 8px 0 rgb(0 0 0 / 20%), 0 4px 10px 0 rgb(0 0 0 / 19%);
+    }
+
+    &--sort-field {
+        padding: 10px 16px;
+        border: 0;
+        outline: 1px solid;
+        border-right: 16px solid transparent;
+        width: 30%;
+        border-radius: 22px;
+    }
+
+    &--not-found-text {
+        margin-top: 3%;
+        font-size: 26px;
+        color: $primary-color;
+        font-weight: bolder;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .hackathons {
+        &--add-hackathon-container {
+            width: 90%;
+        }
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+
+    .hackathons {
+        &--add-hackathon-container {
+            width: 50%;
+        }
     }
 }

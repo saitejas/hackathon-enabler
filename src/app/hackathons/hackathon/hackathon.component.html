@@ -1,28 +1,22 @@
 <mat-card class="m-1">
-    <mat-card-title>{{hackathon.title}}</mat-card-title>
-    <!-- <mat-card-content> -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12 p-0">
-                    <p>{{hackathon.description}}</p>
-                    <button *ngIf="showUpVote" class="primary-button" [ngClass]="{'hackathon--up-vote': canUpVote(), 'hackathon--down-vote': !canUpVote()}" (click)="upVote()">Up Vote</button>
-
-                </div>
-                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-                    <p>Votes: {{hackathon.votes.length}}</p>
-                    <p>Created At: {{hackathon.created_at | date: 'dd/MM/yyyy'}}</p>
-                    <p>
-                        tags: <span>
-                            <ul>
-                                <li *ngFor="let tag of hackathon.tags">
-                                    {{tag}}
-                                </li>
-                            </ul>
-                        </span>
-                    </p>
-                </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                <p class="hackathon--title">{{hackathon.title}}</p>
+                <p class="hackathon--description">{{hackathon.description}}</p>
+                <ul class="hackathon--tags">
+                    <li class="hackathon--tag-item" *ngFor="let tag of hackathon.tags">
+                        #{{tag}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                <p class="hackathon--created-at">Created At: {{hackathon.created_at | date: 'dd/MM/yyyy'}}</p>
+                <p class="hackathon--vote-count">Votes: {{hackathon.votes.length}}</p>
+                <img *ngIf="showUpVote && canUpVote()" class="hackathon--vote-image" src="assets/img/up-vote.png" (click)="upVote()">
+                <img *ngIf="showUpVote && !canUpVote()" class="hackathon--vote-image" src="assets/img/down-vote.png" (click)="upVote()">
             </div>
         </div>
-    <!-- </mat-card-content> -->
+    </div>
 </mat-card>
 
