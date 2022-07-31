@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule, HttpClient } from  '@angular/common/http';
 
 import { LoginModule } from './login/login.module';
 import { HackathonsModule } from './hackathons/hackathons.module';
@@ -26,7 +26,7 @@ import { HackathonsModule } from './hackathons/hackathons.module';
     LoginModule,
     HackathonsModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
