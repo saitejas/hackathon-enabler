@@ -9,7 +9,7 @@ import { Employee } from './models/employee.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'hackathon-enabler';
+  title = 'Hack Ideas';
 
   constructor(private router: Router, private employeeService: EmployeeService) {}
 

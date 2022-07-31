@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map } from 'rxjs';
 import { EventsStoreService } from './events-store.service';
 import { Employee } from './models/employee.model';
 import { Hackathon } from './models/hackathon.model';

@@ -21,7 +21,7 @@ export class HackathonComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedInEmployee = this.employeeService.getEmployee();
-    this.showUpVote = this.hackathon.created_by !== this.loggedInEmployee.id;
+    this.showUpVote = this.hackathon?.created_by !== this.loggedInEmployee?.id;
   }
 
   canUpVote(): boolean {
