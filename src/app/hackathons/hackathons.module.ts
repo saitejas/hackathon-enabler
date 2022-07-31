@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { HeaderModule } from '../header/header.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AddHackathonComponent } from './add-hackathon/add-hackathon.component';
 
 
@@ -24,7 +25,8 @@ import { AddHackathonComponent } from './add-hackathon/add-hackathon.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HeaderModule
+    HeaderModule,
+    NgxPaginationModule
   ]
 })
 export class HackathonsModule { }

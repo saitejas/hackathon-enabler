@@ -19,7 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatIconModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   exports: [
     MatFormFieldModule,
@@ -29,7 +29,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatSnackBarModule,
     MatIconModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
   ]
 })
 export class MaterialModule { }
