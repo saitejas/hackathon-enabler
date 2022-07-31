@@ -2,5 +2,24 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+@import 'theme/colors.scss';
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.width-100 {
+    width: 100%;
+}
+
+.float-right {
+    float: right;
+}
+
+.primary-button {
+    background-color: #94c852;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}

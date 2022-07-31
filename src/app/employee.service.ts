@@ -2,14 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { EventsStoreService } from './events-store.service';
 import { Employee } from './models/employee.model';
+import { Hackathon } from './models/hackathon.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router, private eventsStore: EventsStoreService) { }
 
   getEmployees() {
     return this.httpClient.get('assets/js/employees.js', { responseType: 'json' })
@@ -27,6 +29,10 @@ export class EmployeeService {
         resolve('success');
       }
     })
+  }
+
+  getEmployee(): Employee {
+    return JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('loggedInEmployee'))));
   }
 
   async validate(employeeId: string, password: string): Promise<{status: string, message: string}> {
@@ -59,8 +65,43 @@ export class EmployeeService {
     return responseBody;
   }
 
+  canUpVote(challenge: Hackathon): boolean {
+    const employee: Employee = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('loggedInEmployee'))));
+    if (employee) {
+      if (challenge.votes.includes(employee.id)) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  upVote(challenge: Hackathon): Hackathon {
+    const employee: Employee = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('loggedInEmployee'))));
+    const hackathons: Hackathon[] = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('hackathons'))));
+    if (employee && hackathons) {
+      const challengeIndex = hackathons.findIndex((hackathon) => hackathon.title === challenge.title);
+      if (!challenge.votes.includes(employee.id)) {
+        hackathons[challengeIndex].votes.push(employee.id);
+        localStorage.setItem('hackathons', JSON.stringify(hackathons));
+        this.eventsStore.hackathonsUpdated.emit(true);
+        return hackathons[challengeIndex];
+      } else {
+        const voteIndex = hackathons[challengeIndex].votes.findIndex((empID) => empID === employee.id);
+        hackathons[challengeIndex].votes.splice(voteIndex, 1);
+        localStorage.setItem('hackathons', JSON.stringify(hackathons));
+        this.eventsStore.hackathonsUpdated.emit(true);
+        return hackathons[challengeIndex];
+      }
+    }
+    return challenge;
+  }
+
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('employees');
+    localStorage.removeItem('loggedInEmployee');
     this.router.navigateByUrl('/login');
   }
 

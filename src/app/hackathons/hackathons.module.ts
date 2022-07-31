@@ -5,15 +5,26 @@ import { HackathonsRoutingModule } from './hackathons-routing.module';
 import { AllHackathonsComponent } from './all-hackathons/all-hackathons.component';
 import { HackathonComponent } from './hackathon/hackathon.component';
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '../material.module';
+import { HeaderModule } from '../header/header.module';
+import { AddHackathonComponent } from './add-hackathon/add-hackathon.component';
+
 
 @NgModule({
   declarations: [
     AllHackathonsComponent,
-    HackathonComponent
+    HackathonComponent,
+    AddHackathonComponent
   ],
   imports: [
     CommonModule,
-    HackathonsRoutingModule
+    HackathonsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    HeaderModule
   ]
 })
 export class HackathonsModule { }

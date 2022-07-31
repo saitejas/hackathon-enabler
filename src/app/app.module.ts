@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from  '@angular/common/http';
 
 import { LoginModule } from './login/login.module';
+import { HackathonsModule } from './hackathons/hackathons.module';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,12 @@ import { LoginModule } from './login/login.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    LoginModule
+    LoginModule,
+    HackathonsModule
   ],
   exports: [
-    LoginModule
+    LoginModule,
+    HackathonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

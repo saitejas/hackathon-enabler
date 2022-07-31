@@ -1,0 +1,36 @@
+@import '../../../theme/colors.scss';
+
+.hackathons {
+    &--add-hackathon-container {
+        width: 30%;
+        border-top-left-radius: 20px;
+    }
+
+    &--hackathons-container {
+        height: 100vh;
+        background-color: white;
+    }
+
+    &--banner {
+        padding: 41px 40px 41px 12px;
+        background-color: $primary-color;
+        color: white;
+        margin-bottom: 18px;
+    }
+
+    &--banner-text {
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    &--banner-button {
+        font-size: 18px;
+        padding: 14px;
+        font-weight: bold;
+        border-radius: 16px;
+        color: white;
+        background-color: $secondary-color;
+        border: none;
+        margin-top: -10px;
+    }
+}
