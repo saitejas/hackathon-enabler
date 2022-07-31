@@ -36,3 +36,21 @@ This app enables the employees of an organization to manage hackathons in an eas
 
 - To trigger the unit test, run this command `ng-test` (Karma test server will open automatically in the browser)
 - To view code coverage results, run this command `ng test --no-watch --code-coverage` (Code coverage results will be shown in the terminal)
+
+# Screenshots of the solution
+
+- Login page
+
+<img width="1438" alt="Screenshot 2022-07-31 at 10 18 09 PM" src="https://user-images.githubusercontent.com/21233636/182036864-b720763e-56bd-4959-955f-94031f90d2f4.png">
+
+- Hackathons page when there are no hackathons
+
+<img width="1440" alt="Screenshot 2022-07-31 at 7 52 29 PM" src="https://user-images.githubusercontent.com/21233636/182036880-d72e842d-87dd-49e2-a5b6-289597097a65.png">
+
+- Hackathons page when there are hackathons posted and available
+
+<img width="1440" alt="Screenshot 2022-07-31 at 9 41 36 PM" src="https://user-images.githubusercontent.com/21233636/182036909-3e6400c8-d66d-40bd-b26c-112522a3dc9a.png">
+
+- Hackathons page while adding a challenge
+
+<img width="1438" alt="Screenshot 2022-07-31 at 9 41 50 PM" src="https://user-images.githubusercontent.com/21233636/182036927-a3ed6fd9-1db5-49e9-9ab9-050fd5f3100a.png">
