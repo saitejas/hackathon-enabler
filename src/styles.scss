@@ -15,11 +15,28 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     float: right;
 }
 
+// .primary-button {
+//     background-color: #94c852;
+//     color: white;
+//     font-weight: bold;
+//     border: none;
+//     padding: 10px 20px;
+//     border-radius: 20px;
+// }
+
 .primary-button {
-    background-color: #94c852;
+    background-color: $primary-color;
     color: white;
-    font-weight: bold;
+    font-weight: bolder;
+    padding: 10px 40px;
+    border-radius: 22px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+}
+
+.form-field {
+    width: 70%;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 32px;
 }
