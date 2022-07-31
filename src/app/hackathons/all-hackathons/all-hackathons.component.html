@@ -1,1 +1,26 @@
-<p>all-hackathons works!</p>
+<app-header></app-header>
+<div class="container-fluid hackathons--banner">
+    <p class="hackathons--banner-text">Manage hackathons with utmost ease 
+        <span class="float-right">
+            <button class="hackathons--banner-button" (click)="sidenav.toggle()">Add a hackathon</button>
+        </span>
+    </p>
+</div>
+<div class="container">
+    <mat-sidenav-container [hasBackdrop]="false">
+        <mat-sidenav class="hackathons--add-hackathon-container" #sidenav [mode]="'over'" [position]="'end'">
+            <app-add-hackathon (emitChallenge)="addChallenge($event)" (cancelAddition)="sidenav.toggle()"></app-add-hackathon>
+        </mat-sidenav>
+        <mat-sidenav-content class="hackathons--hackathons-container">
+            <div *ngIf="!hackathons || hackathons?.length === 0" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-center">
+                <p> No Hackathons Found </p>
+                <p> Be the first to come up with a challenge <span><button (click)="sidenav.toggle()">Add a challenge</button></span></p>
+            </div>
+             <div *ngIf="hackathons && hackathons.length > 0" class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div *ngFor="let hackathon of hackathons">
+                   <app-hackathon [hackathon]="hackathon"></app-hackathon>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

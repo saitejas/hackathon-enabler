@@ -1,1 +1,28 @@
-<p>hackathon works!</p>
+<mat-card class="m-1">
+    <mat-card-title>{{hackathon.title}}</mat-card-title>
+    <mat-card-content>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12 p-0">
+                    <p>{{hackathon.description}}</p>
+                    <button *ngIf="showUpVote" class="primary-button" [ngClass]="{'hackathon--up-vote': canUpVote(), 'hackathon--down-vote': !canUpVote()}" (click)="upVote()">Up Vote</button>
+
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                    <p>Votes: {{hackathon.votes.length}}</p>
+                    <p>Created At: {{hackathon.created_at | date: 'dd/MM/yyyy'}}</p>
+                    <p>
+                        tags: <span>
+                            <ul>
+                                <li *ngFor="let tag of hackathon.tags">
+                                    {{tag}}
+                                </li>
+                            </ul>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
